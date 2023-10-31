@@ -1,0 +1,51 @@
+<ion-header [translucent]="true" class="custom-header">
+  <ion-toolbar>
+    <ion-title class="app-title">Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="login-page">
+  <div class="form-group">
+    <ion-card class="login-card">
+      <ion-card-header class="login-header">
+        <ion-card-title class="login-title">Iniciar Sesión</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form [formGroup]="formularioLogin" class="login-form">
+          <ion-item class="control-group">
+            <img src="assets/icon/logoLogin.png "class="logo-chico" alt="Descripción de la imagen">
+
+            <ion-label class="login-field-icon fui-user" position="floating">Nombre de Usuario</ion-label>
+            <ion-input formControlName="nombre" class="login-field input-field" pattern="^[a-zA-Z0-9]{3,8}$"
+              title="El nombre de usuario debe contener entre 3 y 8 caracteres alfanuméricos."
+              minlength="3" maxlength="8"></ion-input>
+            <ion-note *ngIf="formularioLogin.get('nombre')?.hasError('pattern')" color="danger">
+              El nombre de usuario debe contener entre 3 y 8 caracteres alfanuméricos.
+            </ion-note>
+          </ion-item>
+          <ion-item class="control-group">
+            <ion-label class="login-field-icon fui-lock" position="floating">Contraseña</ion-label>
+            <ion-input formControlName="password" type="password" class="login-field input-field" pattern="^\d{4}$"
+              title="La contraseña debe contener exactamente 4 dígitos numéricos." maxlength="4"></ion-input>
+            <ion-note *ngIf="formularioLogin.get('password')?.hasError('pattern')" color="danger">
+              La contraseña debe contener exactamente 4 dígitos numéricos.
+            </ion-note>
+          </ion-item>
+        </form>
+        <ion-button (click)="ingresar()" class="btn btn-primary btn-large btn-block login-button" expand="full" shape="round" fill="solid" color="primary">
+          Ingresar
+        </ion-button>
+        <ion-buttons class="register-button" slot="end" style="display: flex; justify-content: space-between; width: 100%;">
+          <ion-button [routerLink]="['/registro']" size="small" fill="clear" color="primary">Registrarse</ion-button>
+          <ion-button [routerLink]="['/recuperar-contrasena']" size="small" fill="clear" color="primary">Recuperar Contraseña</ion-button>
+        </ion-buttons>
+        
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+
+
+
+

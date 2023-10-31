@@ -1,0 +1,43 @@
+
+.app-title {
+  text-align: center;
+  color: #777;
+}
+.registration-page {
+  background-color: #FFF;
+  padding: 20px;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  height: 100vh; /* Ocupa el 100% de la altura de la ventana */
+}
+.app-registro {
+  text-align: left; /* Cambia la alineación del texto a la izquierda */
+}
+.registration-container {
+  margin: 0 auto;
+  max-width: 300px;
+}
+
+
+
+
+
+.registration-button {
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 25px;
+  padding: 10px 0;
+  text-decoration: none;
+  text-shadow: none;
+  border-radius: 3px;
+  box-shadow: none;
+  transition: 0.25s;
+  display: block;
+  width: 100%;
+}
+.registration-card {
+  border-radius: 5px;
+  width: 310px; /* Aumenta el ancho según tus necesidades */
+  margin: 20px auto; /* Centra horizontalmente */
+}

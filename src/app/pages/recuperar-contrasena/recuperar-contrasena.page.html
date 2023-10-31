@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-title>Recuperar Contraseña</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card class="contra-card">
+    <ion-card-content class="ion-text-center">
+      <ion-item ion-margin>
+        <ion-label position="floating">Ingrese su nombre de usuario:</ion-label>
+        <ion-input [(ngModel)]="nombreUsuarioInput"maxlength="8" type="text"></ion-input>
+      </ion-item>
+      <ion-button expand="full" (click)="buscarContrasena()" class="ion-margin-top">Buscar Contraseña</ion-button>
+      <ion-label>{{ resultadoContrasena }}</ion-label>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,84 @@
+<ion-header [translucent]="true">
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-title class="app-title">Registro</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="registration-page">
+
+
+  <div class="registration-container">
+    <ion-card class="registration-card">
+      <ion-card-header class="registration-header">
+        <ion-card-title class="app-registro">Registro</ion-card-title>
+      </ion-card-header>
+      <ion-list>
+        <ion-item>
+          <!--<ion-select (ionChange)="cargarComuna()" placeholder="Seleccione región" [(ngModel)]="regionSeleccionado">
+            <ion-select-option [value]="i.id" *ngFor="let i of regiones">{{i.nombre}}</ion-select-option>
+          </ion-select>-->
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-item>
+          <ion-select placeholder="Seleccione comuna" [(ngModel)]="comunaSeleccionada">
+            <ion-select-option [value]="i.id" *ngFor="let i of comunas">{{i.nombre}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <ion-card-content>
+        <form [formGroup]="formularioRegistro" (ngSubmit)="guardar()" class="registration-form">
+
+          <ion-item class="registration-input" [class.error]="formularioRegistro.get('rut')?.invalid && formularioRegistro.get('rut')?.touched">
+            <ion-label position="floating">Rut</ion-label>
+            <ion-input formControlName="rut" maxlength="9"></ion-input>
+          </ion-item>
+
+          <ion-item class="registration-input" [class.error]="formularioRegistro.get('nombre')?.invalid && formularioRegistro.get('nombre')?.touched">
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input formControlName="nombre" maxlength="20"></ion-input>
+          </ion-item>
+
+          <ion-item class="registration-input" [class.error]="formularioRegistro.get('apellido')?.invalid && formularioRegistro.get('apellido')?.touched">
+            <ion-label position="floating">Apellido</ion-label>
+            <ion-input formControlName="apellido" maxlength="20"></ion-input>
+          </ion-item>
+
+          <ion-item class="registration-input" [class.error]="formularioRegistro.get('usuario')?.invalid && formularioRegistro.get('usuario')?.touched">
+            <ion-label position="floating">Usuario</ion-label>
+            <ion-input formControlName="usuario" maxlength="8"></ion-input>
+          </ion-item>
+
+          <ion-item class="registration-input" [class.error]="formularioRegistro.get('carrera')?.invalid && formularioRegistro.get('carrera')?.touched">
+            <ion-label position="floating">Carrera</ion-label>
+            <ion-input formControlName="carrera" maxlength="20"></ion-input>
+          </ion-item>
+
+          <ion-item class="registration-input" [class.error]="formularioRegistro.get('password')?.invalid && formularioRegistro.get('password')?.touched">
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input formControlName="password" type="password" pattern="[0-9]{4}" maxlength="4"></ion-input>
+          </ion-item>
+
+          <ion-item class="registration-input" [class.error]="formularioRegistro.get('confirmacionPassword')?.invalid && formularioRegistro.get('confirmacionPassword')?.touched">
+            <ion-label position="floating">Confirmar contraseña</ion-label>
+            <ion-input formControlName="confirmacionPassword" type="password" maxlength="4"></ion-input>
+          </ion-item>
+
+          <ion-button type="submit" class="btn btn-primary btn-large btn-block registration-button" expand="full" shape="round" fill="solid" color="primary">
+            Registrarse
+          </ion-button>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+
+
+
+
+

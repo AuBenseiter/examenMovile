@@ -1,0 +1,31 @@
+.box{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.menuEnabled{
+    background-color: green;
+    color: white;
+}
+
+.menuDisabled{
+    background-color: red;
+    color: white;
+    opacity: 0.5;
+}
+
+.skeleton{
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+}
+.boxSkeleton{
+    display: flex;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+

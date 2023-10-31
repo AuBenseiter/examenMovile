@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">QR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="9" class="ion-align-items-center">
+      <ion-row class="ion-justify-content-center">
+        <h1 class="ion-text-center">Escanea el codigo QR para obtener los datos de la clase</h1>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <zxing-scanner id="scanner" name="scanner" #scannerEnabled [formats]="allowedFormats" (scanSuccess)="readFunc($event, 'success')"></zxing-scanner>
+      </ion-row>
+      <ion-row id="row" class="ion-justify-content-center">
+        <h2 class="ion-text-center">Seras redireccionado automaticamente a los datos de la clase</h2>
+      </ion-row>
+      <ion-row id="row1" class="ion-justify-content-center">
+        <ion-button routerLink="/login" color="danger" fill="solid" expand="block" shape="round">Salir</ion-button>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+
+
+
+</ion-content>

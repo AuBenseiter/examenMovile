@@ -16,7 +16,7 @@ export class LoginPage implements OnInit {
     public fb: FormBuilder,
     private router: Router,
     public alertController: AlertController
-  ) { 
+  ) {
     this.formularioLogin = this.fb.group({
       'nombre': new FormControl("", [Validators.required, Validators.pattern(/^[a-zA-Z0-9]{3,8}$/)]),
       'password': new FormControl("", [Validators.required, Validators.pattern(/^\d{4}$/)])
@@ -40,6 +40,7 @@ export class LoginPage implements OnInit {
           await Preferences.set({ key: 'nombreUsuario', value: user.nombre});
           await Preferences.set({ key: 'usuario', value: JSON.stringify(usuarios)});
           console.log("Sesión iniciada");
+          localStorage.setItem("Sesión iniciada", "true");//banderacdcs
           this.router.navigate(['/home']);
           }else{
             const alert = await this.alertController.create({
@@ -47,9 +48,9 @@ export class LoginPage implements OnInit {
               message: 'Los datos que se ingresaron no son correctos.',
               buttons: ['Aceptar']
             });
-      
+
             await alert.present();
-          } 
+          }
 
       }else {
       const alert = await this.alertController.create({

@@ -40,9 +40,15 @@ const routes: Routes = [
     loadChildren: () => import('./pages/lector-qr/lector-qr.module').then( m => m.LectorQRPageModule)
   },
   {
+    path: 'datosclase',
+    loadChildren: () => import('./pages/datosclase/datosclase.module').then( m => m.DatosclasePageModule)
+  },
+
+  {
     path: '**',
     loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule)
   },
+  
 
 
 

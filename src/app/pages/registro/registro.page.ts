@@ -3,9 +3,9 @@ import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms'
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router'; // Agrega esta importación
 
-//import { LocationService } from 'src/app/services/location.service';
+import { LocationService } from 'src/app/services/location.service';
 import { Comuna } from 'src/app/models/comuna';
-import { Region } from 'src/app/models/region';
+/*import { Regiones } from 'src/app/models/region';*/
 //importa la libreria de capacitor preferencececs
 import { Preferences } from '@capacitor/preferences';
 
@@ -14,17 +14,17 @@ import { Preferences } from '@capacitor/preferences';
   templateUrl: './registro.page.html',
   styleUrls: ['./registro.page.scss'],
 })
-export class RegistroPage   {
+export class RegistroPage implements OnInit  {
 
   formularioRegistro: FormGroup;
 
 
-  regiones:Region[]=[];
+  regiones:{ id: number; nombre: string; }[]=[];
   comunas:Comuna[]=[];
   regionSeleccionado:number = 0;
   comunaSeleccionada:number = 0;
 
-  constructor(private router: Router,/*private locationService:LocationService,*/public fb: FormBuilder, public alertController: AlertController) {
+  constructor(private router: Router,private locationService: LocationService,public fb: FormBuilder, public alertController: AlertController) {
     this.formularioRegistro = this.fb.group({
       'rut': new FormControl("", [Validators.required]),
       'nombre': new FormControl("", [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[a-zA-Z0-9]*$/)]),
@@ -37,10 +37,10 @@ export class RegistroPage   {
   }
 
   ngOnInit() {
-    //this.cargarRegion();
+    this.cargarRegion();
   }
 
-  /*
+  
 
   async cargarRegion(){
     const req = await this.locationService.getRegion();
@@ -52,7 +52,7 @@ export class RegistroPage   {
     const req = await this.locationService.getComuna(this.regionSeleccionado);
     this.comunas = req.data;
     console.log("COMUNA",this.comunas);
-  }*/
+  }
 
 
 

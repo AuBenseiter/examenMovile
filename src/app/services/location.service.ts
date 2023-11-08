@@ -1,9 +1,9 @@
-/*
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
-import { ApiResponse } from '../models/apiResponse';
-import { Region } from '../models/region';
+/*import { ApiResponse } from '../models/apiResponse';*/
+import { Regiones } from '../models/region';
 import { environment } from 'src/environments/environment';
 import { Comuna } from '../models/comuna';
 
@@ -15,11 +15,11 @@ export class LocationService {
   constructor(private http:HttpClient) { }
 
   async getRegion(){
-    return await lastValueFrom(this.http.get<ApiResponse<Region>>(`${environment.apiUrl}region`));
+    return await lastValueFrom(this.http.get(`${environment.apiUrl}region`));
   }
 
   async getComuna(regionId:number){
-    return await lastValueFrom(this.http.get<ApiResponse<Comuna>>(`${environment.apiUrl}comuna/` + regionId));
+    return await lastValueFrom(this.http.get(`${environment.apiUrl}comuna/` + regionId));
   }
 }
-*/
+

@@ -152,7 +152,7 @@ export class RegistroPage   {
       return;
     }
 
-    if (!this.regionSeleccionado) {
+    /*if (!this.regionSeleccionado) {
       await this.mostrarAlerta('Región requerida', 'Debes seleccionar una región.');
       return;
     }
@@ -161,7 +161,7 @@ export class RegistroPage   {
       await this.mostrarAlerta('Comuna requerida', 'Debes seleccionar una comuna.');
       return;
     }
-
+*/
     // Si todos los campos son válidos, realiza el registro
     var usuarioRe = {
       rut: f.rut,

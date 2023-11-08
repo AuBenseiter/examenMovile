@@ -52,6 +52,11 @@ const routes: Routes = [
     canActivate: [IngresadoGuard]
   },
   {
+    path: 'datosclase',
+    loadChildren: () => import('./pages/datosclase/datosclase.module').then( m => m.DatosclasePageModule)
+  },
+
+  {
     path: '**',
     loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule)
   },

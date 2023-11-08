@@ -15,7 +15,7 @@ export class LocationService {
   constructor(private http:HttpClient) { }
 
   async getRegion(){
-    return await lastValueFrom(this.http.get(`${environment.apiUrl}region`));
+    return await lastValueFrom(this.http.get(`${environment.apiUrl}/region`));
   }
 
   async getComuna(regionId:number){

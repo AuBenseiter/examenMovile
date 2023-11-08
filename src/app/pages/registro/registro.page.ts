@@ -40,17 +40,18 @@ export class RegistroPage implements OnInit  {
     this.cargarRegion();
   }
 
-  
+
 
   async cargarRegion(){
     const req = await this.locationService.getRegion();
-    this.regiones = req.data;
+    console.log(req);
+    //this.regiones = req.data;
     console.log("REGION",this.regiones);
   }
 
   async cargarComuna(){
     const req = await this.locationService.getComuna(this.regionSeleccionado);
-    this.comunas = req.data;
+    //this.comunas = req.data;
     console.log("COMUNA",this.comunas);
   }
 
@@ -152,7 +153,7 @@ export class RegistroPage implements OnInit  {
       return;
     }
 
-    /*if (!this.regionSeleccionado) {
+    if (!this.regionSeleccionado) {
       await this.mostrarAlerta('Región requerida', 'Debes seleccionar una región.');
       return;
     }
@@ -161,7 +162,7 @@ export class RegistroPage implements OnInit  {
       await this.mostrarAlerta('Comuna requerida', 'Debes seleccionar una comuna.');
       return;
     }
-*/
+
     // Si todos los campos son válidos, realiza el registro
     var usuarioRe = {
       rut: f.rut,

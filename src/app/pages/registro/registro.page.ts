@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router'; // Agrega esta importación
+import { HttpClient} from '@angular/common/http'
 
 import { LocationService } from 'src/app/services/location.service';
 import { Comuna } from 'src/app/models/comuna';
@@ -19,7 +20,7 @@ export class RegistroPage implements OnInit  {
   formularioRegistro: FormGroup;
 
 
-  regiones:{ id: number; nombre: string; }[]=[];
+  regiones:any[]=[];
   comunas:Comuna[]=[];
   regionSeleccionado:number = 0;
   comunaSeleccionada:number = 0;
@@ -40,16 +41,21 @@ export class RegistroPage implements OnInit  {
     this.cargarRegion();
   }
 
-  
+
 
   async cargarRegion(){
-    const req = await this.locationService.getRegion();
+  try {  
+    const req = await this.locationService.getRegion().toPromise();
+    console.log(req);
     this.regiones = req.data;
-    console.log("REGION",this.regiones);
+    console.log("REGION",this.regiones)
+  } catch (error) {
+    console.error('Error fetching region:', error);
+    ;
   }
-
+}
   async cargarComuna(){
-    const req = await this.locationService.getComuna(this.regionSeleccionado);
+    const req = await this.locationService.getComuna(this.regionSeleccionado).toPromise();
     this.comunas = req.data;
     console.log("COMUNA",this.comunas);
   }
@@ -152,7 +158,7 @@ export class RegistroPage implements OnInit  {
       return;
     }
 
-    /*if (!this.regionSeleccionado) {
+    if (!this.regionSeleccionado) {
       await this.mostrarAlerta('Región requerida', 'Debes seleccionar una región.');
       return;
     }
@@ -161,7 +167,7 @@ export class RegistroPage implements OnInit  {
       await this.mostrarAlerta('Comuna requerida', 'Debes seleccionar una comuna.');
       return;
     }
-*/
+
     // Si todos los campos son válidos, realiza el registro
     var usuarioRe = {
       rut: f.rut,

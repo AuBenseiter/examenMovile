@@ -21,9 +21,11 @@
             <ion-select-option [value]="i.id" *ngFor="let i of regiones">{{i.nombre}}</ion-select-option>
           </ion-select>
         </ion-item>
-      </ion-list>
-
-      <ion-list>
+        <ion-item>
+          <ion-select placeholder="Seleccione comuna" [(ngModel)]="comunaSeleccionada">
+            <ion-select-option [value]="comuna.id" *ngFor="let comuna of comunas">{{comuna.nombre}}</ion-select-option>
+          </ion-select>
+        </ion-item>
 
       </ion-list>
       <ion-card-content>

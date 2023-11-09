@@ -17,6 +17,7 @@ export class LocationService {
 getRegion():Observable<any>{
     return this.http.get<any>(`${environment.apiUrl}/region`);
 
+  }
 
 getComuna(regionId:number): Observable<any>{
     return this.http.get<any>(`${environment.apiUrl}/comuna/` + regionId);

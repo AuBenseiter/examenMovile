@@ -13,9 +13,10 @@ import { Comuna } from '../models/comuna';
 export class LocationService {
   constructor(private http:HttpClient) { }
 
+
 getRegion():Observable<any>{
     return this.http.get<any>(`${environment.apiUrl}/region`);
-  }
+
 
 getComuna(regionId:number): Observable<any>{
     return this.http.get<any>(`${environment.apiUrl}/comuna/` + regionId);

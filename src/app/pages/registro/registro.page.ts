@@ -44,6 +44,7 @@ export class RegistroPage implements OnInit  {
 
 
   async cargarRegion(){
+
   try {  
     const req = await this.locationService.getRegion().toPromise();
     console.log(req);
@@ -52,11 +53,15 @@ export class RegistroPage implements OnInit  {
   } catch (error) {
     console.error('Error fetching region:', error);
     ;
+
   }
 }
   async cargarComuna(){
+
     const req = await this.locationService.getComuna(this.regionSeleccionado).toPromise();
     this.comunas = req.data;
+
+
     console.log("COMUNA",this.comunas);
   }
 

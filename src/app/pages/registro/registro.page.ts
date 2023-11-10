@@ -2,10 +2,11 @@ import { Component,OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router'; // Agrega esta importación
+import { HttpClient} from '@angular/common/http'
 
-//import { LocationService } from 'src/app/services/location.service';
+import { LocationService } from 'src/app/services/location.service';
 import { Comuna } from 'src/app/models/comuna';
-import { Region } from 'src/app/models/region';
+/*import { Regiones } from 'src/app/models/region';*/
 //importa la libreria de capacitor preferencececs
 import { Preferences } from '@capacitor/preferences';
 
@@ -14,17 +15,17 @@ import { Preferences } from '@capacitor/preferences';
   templateUrl: './registro.page.html',
   styleUrls: ['./registro.page.scss'],
 })
-export class RegistroPage   {
+export class RegistroPage implements OnInit  {
 
   formularioRegistro: FormGroup;
 
 
-  regiones:Region[]=[];
+  regiones:any[]=[];
   comunas:Comuna[]=[];
   regionSeleccionado:number = 0;
   comunaSeleccionada:number = 0;
 
-  constructor(private router: Router,/*private locationService:LocationService,*/public fb: FormBuilder, public alertController: AlertController) {
+  constructor(private router: Router,private locationService: LocationService,public fb: FormBuilder, public alertController: AlertController) {
     this.formularioRegistro = this.fb.group({
       'rut': new FormControl("", [Validators.required]),
       'nombre': new FormControl("", [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[a-zA-Z0-9]*$/)]),
@@ -37,22 +38,32 @@ export class RegistroPage   {
   }
 
   ngOnInit() {
-    //this.cargarRegion();
+    this.cargarRegion();
   }
 
-  /*
+
 
   async cargarRegion(){
-    const req = await this.locationService.getRegion();
-    this.regiones = req.data;
-    console.log("REGION",this.regiones);
-  }
 
+  try {  
+    const req = await this.locationService.getRegion().toPromise();
+    console.log(req);
+    this.regiones = req.data;
+    console.log("REGION",this.regiones)
+  } catch (error) {
+    console.error('Error fetching region:', error);
+    ;
+
+  }
+}
   async cargarComuna(){
-    const req = await this.locationService.getComuna(this.regionSeleccionado);
+
+    const req = await this.locationService.getComuna(this.regionSeleccionado).toPromise();
     this.comunas = req.data;
+
+
     console.log("COMUNA",this.comunas);
-  }*/
+  }
 
 
 
@@ -152,7 +163,7 @@ export class RegistroPage   {
       return;
     }
 
-    /*if (!this.regionSeleccionado) {
+    if (!this.regionSeleccionado) {
       await this.mostrarAlerta('Región requerida', 'Debes seleccionar una región.');
       return;
     }
@@ -161,7 +172,7 @@ export class RegistroPage   {
       await this.mostrarAlerta('Comuna requerida', 'Debes seleccionar una comuna.');
       return;
     }
-*/
+
     // Si todos los campos son válidos, realiza el registro
     var usuarioRe = {
       rut: f.rut,

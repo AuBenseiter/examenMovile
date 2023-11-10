@@ -1,4 +1,4 @@
-export interface Region{
-  id:number;
+export interface Regiones {
+  id:any;
   nombre:string;
 }

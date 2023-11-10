@@ -1,0 +1,17 @@
+ion-content{
+  text-align: center;
+  ion-grid{
+    ion-row{
+      ion-col{
+        padding: 0;
+        margin: 0.2rem 0;
+        ion-button{
+          margin: 0.1rem 0;
+        }
+        img{
+          width: 80vw;
+        }
+      }
+    }
+  }
+}

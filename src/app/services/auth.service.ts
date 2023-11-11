@@ -16,5 +16,5 @@ export class AuthService {
         const usuarioJSON = await Preferences.get({ key: 'usuario' })
         return usuarioJSON.value ? JSON.parse(usuarioJSON.value) : null;
     }
- 
+
 }

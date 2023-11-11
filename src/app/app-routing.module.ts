@@ -43,11 +43,6 @@ const routes: Routes = [
     path: '**',
     loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule)
   },
-  {
-    path: 'gps',
-    loadChildren: () => import('./pages/gps/gps.module').then(m => m.GpsPageModule)
-  },
-
 
 
 

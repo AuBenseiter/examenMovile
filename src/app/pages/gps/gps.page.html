@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Escáner QR
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="navigateLeft()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <video id="videoElement" autoplay width="500" height="500"></video>
+  <div *ngIf="scannedQRCode">
+    <h1 style="font-size: 24px; color: green; font-weight: bold;">Código QR escaneado</h1>
+    <p>{{ scannedQRCode }}</p>
+    <div *ngIf="currentLocation">
+      <div *ngIf="authenticatedUser">
+        <p>Detalles del usuario:</p>
+        <img [src]="fotoURL" alt="Foto tomada" />
+
+        <p class="bold-text"><strong>Nombre:</strong> {{ authenticatedUser.username }}</p>
+        <p class="bold-text"><strong>Email:</strong> {{ authenticatedUser.email }}</p>
+        <p class="bold-text"><strong>Rut:</strong> {{ authenticatedUser.rut }}</p>
+        <p class="bold-text"><strong>Ciudad:</strong> {{ authenticatedUser.city.name }}</p>
+        <p class="bold-text"><strong>Comuna:</strong> {{ authenticatedUser.commune.name }}</p>
+
+      </div>
+      <p>Coordenadas:</p>
+      <p>{{ currentLocation }}</p>
+    </div>
+    <ion-button (click)="openLink(scannedQRCode)" expand="full">Ir al Link</ion-button>
+  </div>
+</ion-content>

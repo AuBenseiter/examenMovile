@@ -1,3 +1,3 @@
-export class ApiResponse<T> {
+/*export class ApiResponse<T> {
   // Definición de ApiResponse
-}
+}*/

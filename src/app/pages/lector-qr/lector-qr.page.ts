@@ -10,9 +10,14 @@ import { IonRefresher } from '@ionic/angular';
   styleUrls: ['./lector-qr.page.scss'],
 })
 export class LectorQRPage implements OnInit {
+  
+  //*private codeReader: BrowserQRCodeReader;
+  //*public scannedData: string | null = null;
+
   scannerEnabled: boolean = true;
   qrResultString: string = "";
   allowedFormats = [ BarcodeFormat.QR_CODE ];
+  
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -23,10 +28,12 @@ export class LectorQRPage implements OnInit {
       this.scannerEnabled = false;
       localStorage.setItem('datosqr', res)
       this.router.navigateByUrl('datosclase');
+console.log(res)
 
     } else if (res == 'failure'){
       console.log('error, intente nuevamente')
     }
   }
 
+  
 }

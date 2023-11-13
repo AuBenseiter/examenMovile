@@ -22,7 +22,7 @@ export class DatosclasePage implements OnInit {
     // Suscribe al observable para obtener futuros cambios
     this.datosService.qrResultString$.subscribe((value) => {
       this.qrResultString = value;
-      this.getCurrentLocation();s
+      this.getCurrentLocation();
     });
 
   }

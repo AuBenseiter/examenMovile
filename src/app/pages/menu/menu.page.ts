@@ -115,7 +115,9 @@ export class MenuPage implements OnInit, OnDestroy {
 
     var corfirmar = await this.helper.showConfirm("Desea cerrar la sesión actual?","Confirmar","Cancelar")
     if (corfirmar == true) {
-      this.router.navigateByUrl("login");
+      this.router.navigateByUrl("/src/app/pages/login");
+    }else {
+      console.log("No se cerró la sesión");
     }
   }
 

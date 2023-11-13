@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { IonRefresher } from '@ionic/angular';
 import {DatosServiceService} from "../../services/datos-service.service";
 
+
 @Component({
   selector: 'app-lector-qr',
   templateUrl: './lector-qr.page.html',
@@ -14,7 +15,12 @@ export class LectorQRPage implements OnInit {
   scannerEnabled: boolean = true;
   qrResultString: string = "";
   allowedFormats = [ BarcodeFormat.QR_CODE ];
-  constructor(private router: Router, private datosService: DatosServiceService) { }
+  constructor(
+    private router: Router,
+    private datosService: DatosServiceService
+    ) { }
+
+
 
   ngOnInit() {
   }
@@ -23,7 +29,7 @@ export class LectorQRPage implements OnInit {
     if (status == 'success'){
       this.scannerEnabled = false;
       localStorage.setItem('datosqr', res)
-      //reviso que esta trallendo
+      //reviso que esta trayendo
       console.log('llamando a: \n', res);
       this.datosService.setQrResultString(res); // Usamos el servicio para compartir el valor
       this.router.navigateByUrl('datosclase');

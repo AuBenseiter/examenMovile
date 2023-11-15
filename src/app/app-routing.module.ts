@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import {AuthGuard} from "./services/auth.guard";
 import {NoIngresadoGuard} from "./services/no-ingresado.guard";
 import {IngresadoGuard} from "./services/ingresado.guard";
+import {RecuperarContrasenaPageModule} from "./pages/recuperar-contrasena/recuperar-contrasena.module";
 
 const routes: Routes = [
   {
@@ -42,8 +43,8 @@ const routes: Routes = [
     canActivate: [NoIngresadoGuard]
   },
   {
-    path: 'reset-password',
-    loadChildren: () => import('./pages/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule),
+    path: 'recuperar-contrasena',
+    loadChildren: () => import('./pages/recuperar-contrasena/recuperar-contrasena.module').then( m => m.RecuperarContrasenaPageModule),
     canActivate: [NoIngresadoGuard]
   },
   {

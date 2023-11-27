@@ -3,6 +3,9 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { Router } from '@angular/router';
 import { Preferences } from '@capacitor/preferences';
 import { AlertController } from '@ionic/angular';
+import { OnDestroy } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-login',
@@ -50,6 +53,7 @@ export class LoginPage implements OnInit {
             });
 
             await alert.present();
+            this.router.navigate(['/registro']);
           }
 
       }else {
@@ -62,4 +66,10 @@ export class LoginPage implements OnInit {
       await alert.present();
     }
   }
+
+  ionViewWillLeave() {
+    // Clear the input fields when the user navigates away from the page
+    this.formularioLogin.reset();
+
+}
 }

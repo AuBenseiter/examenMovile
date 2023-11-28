@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">myFirstApp</string>
+    <string name="title_activity_main">myFirstApp</string>
+    <string name="package_name">cl.villaTorre.app</string>
+    <string name="custom_url_scheme">cl.villaTorre.app</string>
+</resources>

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
 import {DatosServiceService} from "../../services/datos-service.service";
 import {Preferences} from "@capacitor/preferences";
 import {Geolocation, GeolocationPosition} from "@capacitor/geolocation";
+
 
 
 @Component({
@@ -10,6 +12,12 @@ import {Geolocation, GeolocationPosition} from "@capacitor/geolocation";
   styleUrls: ['./datosclase.page.scss'],
 })
 export class DatosclasePage implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
   qrResultString: string = '';
   currentLocation: string = '';
   constructor(private datosService: DatosServiceService) { }

@@ -17,8 +17,8 @@ export class NoIngresadoGuard implements CanActivate {
       this.navCtrl.navigateRoot('/home');
       return false;
     }else{
-      this.navCtrl.navigateRoot('/login'); // or '/home' depending on your desired behavior
-      return false;
+      return true;
     }
   }
+
 }

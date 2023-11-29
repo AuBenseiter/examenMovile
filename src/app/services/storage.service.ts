@@ -23,13 +23,12 @@ export class StorageService {
     await Preferences.set({key:llave,value:valor});
   }
 
-//obtiene un usuario desde el storage
+//obtiene lista un usuario desde el storage
   async obtenerUsuario(){
     const storageData = await this.getItem(storageUsuario);
     if (storageData == null) {
       return [];
     }
-
     const data:any[] = JSON.parse(storageData);
     if (data) {
       return data;
@@ -37,6 +36,17 @@ export class StorageService {
       return [];
     }
   }
+  //Obtener los datos del usuario actual
+  async obtenerDatosUsuario() {
+    const storageResult = await Preferences.get({ key: 'usuarios' });
+    const storageData = storageResult.value;
+    if (storageData == null) {
+      return null;
+    }
+    const data: any = JSON.parse(storageData);
+    return data ? data : null;
+  }
+
 // agrega un usuario al storage
   async agregarUsuario(user:any[]){
     const usuarios = await this.obtenerUsuario();

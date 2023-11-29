@@ -1,24 +1,14 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-
-    <ion-title>datosclase</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">datosclase nose</ion-title>
-    </ion-toolbar>
-  </ion-header>
-=======
-    <ion-title>Bienvenido</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-back-button titulo="Datos Clase"></app-back-button>
 
 <ion-content>
     <ion-toolbar>
-      <ion-title size="large">Credenciales:</ion-title>
+      <div>
+        <ion-title size="large">Nombre: </ion-title><p>{{ nombre }}</p>
+        <ion-title size="large">Apellido: </ion-title><p>{{ apellido }}</p>
+        <ion-title size="large">Usuario: </ion-title><p>{{ usuario }}</p>
+        <ion-title size="large">Carrera: </ion-title><p>{{ carrera }}</p>
+      </div>
+      <ion-title size="large">Datos Clases:</ion-title>
       <p>{{ qrResultString }}</p>
       <p>Coordenadas:</p>
       <p>{{ currentLocation }}</p>

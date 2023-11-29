@@ -43,7 +43,7 @@ export class LoginPage implements OnInit {
           await Preferences.set({ key: 'nombreUsuario', value: user.nombre});
           await Preferences.set({ key: 'usuario', value: JSON.stringify(usuarios)});
           console.log("Sesión iniciada");
-          localStorage.setItem("Sesión iniciada", "true");//banderacdcs
+          localStorage.setItem("Sesión iniciada", "true");//bandera key and value
           this.router.navigate(['/home']);
           }else{
             const alert = await this.alertController.create({

@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { DatosclasePageRoutingModule } from './datosclase-routing.module';
 
 import { DatosclasePage } from './datosclase.page';
+import {ComponentsModule} from "../../components/components.module";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    DatosclasePageRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        DatosclasePageRoutingModule,
+        ComponentsModule
+    ],
   declarations: [DatosclasePage]
 })
 export class DatosclasePageModule {}

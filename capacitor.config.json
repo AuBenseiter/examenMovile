@@ -1,3 +1,9 @@
 {
-  "linuxAndroidStudioPath": "C:/Users/danie/AppData/Local/Programs/Android Studio/bin/sstudio64.exe"
+  "linuxAndroidStudioPath": "C:/Users/danie/AppData/Local/Programs/Android Studio/bin/sstudio64.exe",
+  "appId": "com.dafrias.app",
+  "appName": "dafrias",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
 }

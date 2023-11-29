@@ -1,7 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <div>
-      <ion-title>{{titulo}}</ion-title>
-    </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="7" class="ion-text-end">
+          <ion-title>{{titulo}}</ion-title>
+        </ion-col>
+        <ion-col size="5" class="ion-text-end">
+          <app-dark-mode></app-dark-mode>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>

@@ -42,8 +42,9 @@ export class LoginPage implements OnInit {
           // Compara el nombre de usuario y la contraseña ingresados
           await Preferences.set({ key: 'nombreUsuario', value: user.nombre});
           await Preferences.set({ key: 'usuario', value: JSON.stringify(usuarios)});
+          await Preferences.set({ key: 'usuarioLogeado', value: 'true' }); // Establece usuario logeado en Capacitor Storage
           console.log("Sesión iniciada");
-          localStorage.setItem("Sesión iniciada", "true");//bandera key and value
+          localStorage.setItem("Sesión iniciada", "true");//banderacdcs
           this.router.navigate(['/home']);
           }else{
             const alert = await this.alertController.create({

@@ -1,8 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start" (click)="cerrarSesion()">
-      <ion-icon name="log-out-outline" defaultHref="/"></ion-icon>
-    </ion-buttons>
-    <ion-title>{{titulo}}</ion-title>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4">
+          <ion-buttons (click)="cerrarSesion()">
+            <ion-icon name="log-out-outline" defaultHref="/"></ion-icon>
+          </ion-buttons>
+        </ion-col>
+        <ion-col size="4" class="ion-text-center">
+          <ion-title>{{titulo}}</ion-title>
+        </ion-col>
+        <ion-col size="4" class="ion-text-end">
+          <app-dark-mode></app-dark-mode>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>

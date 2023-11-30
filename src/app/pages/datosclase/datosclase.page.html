@@ -2,16 +2,26 @@
 
 <ion-content>
     <ion-toolbar>
-      <div>
-        <ion-title size="large">Nombre: </ion-title><p>{{ nombre }}</p>
-        <ion-title size="large">Apellido: </ion-title><p>{{ apellido }}</p>
-        <ion-title size="large">Usuario: </ion-title><p>{{ usuario }}</p>
-        <ion-title size="large">Carrera: </ion-title><p>{{ carrera }}</p>
-      </div>
-      <ion-title size="large">Datos Clases:</ion-title>
-      <p>{{ qrResultString }}</p>
-      <p>Coordenadas:</p>
-      <p>{{ currentLocation }}</p>
+      <ion-grid>
+        <ion-col size="12" class="ion-text-center">
+          <div>
+            <h1>Nombre:</h1><h1>  {{ nombre }}</h1>
+          </div>
+          <div>
+            <h1 size="large">Apellido: </h1><h1>{{ apellido }}</h1>
+          </div>
+          <div>
+            <h1 size="large">Usuario: </h1><h1>{{ usuario }}</h1>
+          </div>
+          <div>
+            <h1 size="large">Carrera: </h1><h1>{{ carrera }}</h1>
+          </div>
+        </ion-col>
+      </ion-grid>
+      <h1 size="large">Datos Clases:</h1>
+      <h1>{{ qrResultString }}</h1>
+      <h1>Coordenadas:</h1>
+      <h1>{{ currentLocation }}</h1>
 
     </ion-toolbar>
 </ion-content>
